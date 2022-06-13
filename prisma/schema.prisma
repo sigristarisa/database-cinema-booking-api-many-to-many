@@ -67,4 +67,13 @@ model Ticket {
   customerId    Int
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  seating       Seating[]
+}
+
+model Seating {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  seatNum       String    @unique
+  ticket        Ticket[]
 }
